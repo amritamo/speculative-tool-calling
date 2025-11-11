@@ -80,6 +80,11 @@ class SupervisorState(TypedDict):
     research_iterations: int = 0
     raw_notes: Annotated[list[str], override_reducer] = []
 
+    # --- speculative inference fields ---
+    # draft_response: Optional[Any]
+    # verifier_response: Optional[Any]
+    # merged_response: Optional[Any]
+
 class ResearcherState(TypedDict):
     """State for individual researchers conducting research."""
     
@@ -88,6 +93,11 @@ class ResearcherState(TypedDict):
     research_topic: str
     compressed_research: str
     raw_notes: Annotated[list[str], override_reducer] = []
+
+    # # --- speculative inference fields ---
+    # draft_response: Optional[Any]
+    # verifier_response: Optional[Any]
+    # merged_response: Optional[Any]
 
 class ResearcherOutputState(BaseModel):
     """Output state from individual researchers."""

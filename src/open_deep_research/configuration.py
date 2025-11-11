@@ -119,11 +119,11 @@ class Configuration(BaseModel):
     )
     # Model Configuration
     summarization_model: str = Field(
-        default="openai:gpt-4.1-mini",
+        default="google_genai:gemini-2.5-flash-lite",
         metadata={
             "x_oap_ui_config": {
                 "type": "text",
-                "default": "openai:gpt-4.1-mini",
+                "default": "google_genai:gemini-2.5-flash-lite",
                 "description": "Model for summarizing research results from Tavily search results"
             }
         }
@@ -151,11 +151,11 @@ class Configuration(BaseModel):
         }
     )
     research_model: str = Field(
-        default="openai:gpt-4.1",
+        default="google_genai:gemini-2.5-pro",
         metadata={
             "x_oap_ui_config": {
                 "type": "text",
-                "default": "openai:gpt-4.1",
+                "default": "google_genai:gemini-2.5-pro",
                 "description": "Model for conducting research. NOTE: Make sure your Researcher Model supports the selected search API."
             }
         }
@@ -171,11 +171,11 @@ class Configuration(BaseModel):
         }
     )
     compression_model: str = Field(
-        default="openai:gpt-4.1",
+        default="google_genai:gemini-2.5-flash-lite",
         metadata={
             "x_oap_ui_config": {
                 "type": "text",
-                "default": "openai:gpt-4.1",
+                "default": "google_genai:gemini-2.5-flash-lite",
                 "description": "Model for compressing research findings from sub-agents. NOTE: Make sure your Compression Model supports the selected search API."
             }
         }
@@ -191,11 +191,11 @@ class Configuration(BaseModel):
         }
     )
     final_report_model: str = Field(
-        default="openai:gpt-4.1",
+        default="google_genai:gemini-2.5-flash-lite",
         metadata={
             "x_oap_ui_config": {
                 "type": "text",
-                "default": "openai:gpt-4.1",
+                "default": "google_genai:gemini-2.5-flash-lite",
                 "description": "Model for writing the final report from all research findings"
             }
         }
@@ -210,6 +210,63 @@ class Configuration(BaseModel):
             }
         }
     )
+
+        # Speculative Tool Call Configuration
+    enable_speculative_tool_calls: bool = Field(
+        default=False,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "boolean",
+                "default": False,
+                "description": "Enable speculative tool call prediction using a draft and target model."
+            }
+        }
+    )
+    speculative_draft_model: Optional[str] = Field(
+        default=None,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "text",
+                "description": "Lightweight model used as a draft predictor for speculative tool calls (e.g. gpt-4o-mini or gemini-flash)."
+            }
+        }
+    )
+    speculative_target_model: Optional[str] = Field(
+        default=None,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "text",
+                "description": "Main model that validates or corrects draft model's tool call predictions (e.g. gpt-4o or gemini-1.5-pro)."
+            }
+        }
+    )
+    speculative_agreement_threshold: float = Field(
+        default=0.8,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "slider",
+                "default": 0.8,
+                "min": 0.5,
+                "max": 1.0,
+                "step": 0.05,
+                "description": "Minimum similarity/agreement between draft and target tool call predictions required to accept speculative result."
+            }
+        }
+    )
+    speculative_timeout_ratio: float = Field(
+        default=0.3,
+        metadata={
+            "x_oap_ui_config": {
+                "type": "slider",
+                "default": 0.3,
+                "min": 0.1,
+                "max": 1.0,
+                "step": 0.1,
+                "description": "Proportion of target model latency allowed before speculative draft results are used as fallback."
+            }
+        }
+    )
+
     # MCP server configuration
     mcp_config: Optional[MCPConfig] = Field(
         default=None,

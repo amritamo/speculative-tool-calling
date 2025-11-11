@@ -1,0 +1,63 @@
+{
+  "trace_id": "019a3732-021b-76ef-b120-14dada44d408",
+  "e2e_latency_sec": 34.512662,
+  "total_tool_latency_sec": 76.646741,
+  "tool_to_e2e_ratio_percent": 222.0829590021193,
+  "tool_breakdown": {
+    "ChatGoogleGenerativeAI": {
+      "count": 5,
+      "total_latency_sec": 32.259482,
+      "avg_latency_sec": 6.4518964
+    },
+    "final_report_generation": {
+      "count": 1,
+      "total_latency_sec": 28.164452,
+      "avg_latency_sec": 28.164452
+    },
+    "supervisor_tools": {
+      "count": 2,
+      "total_latency_sec": 0.0033880000000000004,
+      "avg_latency_sec": 0.0016940000000000002
+    },
+    "_ConfigurableModel": {
+      "count": 4,
+      "total_latency_sec": 5.133202,
+      "avg_latency_sec": 1.2833005
+    },
+    "supervisor": {
+      "count": 2,
+      "total_latency_sec": 1.728053,
+      "avg_latency_sec": 0.8640265
+    },
+    "LangGraph": {
+      "count": 1,
+      "total_latency_sec": 1.750871,
+      "avg_latency_sec": 1.750871
+    },
+    "research_supervisor": {
+      "count": 1,
+      "total_latency_sec": 1.753103,
+      "avg_latency_sec": 1.753103
+    },
+    "PydanticToolsParser": {
+      "count": 2,
+      "total_latency_sec": 0.0072440000000000004,
+      "avg_latency_sec": 0.0036220000000000002
+    },
+    "RunnableSequence": {
+      "count": 2,
+      "total_latency_sec": 2.416905,
+      "avg_latency_sec": 1.2084525
+    },
+    "write_research_brief": {
+      "count": 1,
+      "total_latency_sec": 1.440665,
+      "avg_latency_sec": 1.440665
+    },
+    "clarify_with_user": {
+      "count": 1,
+      "total_latency_sec": 1.989376,
+      "avg_latency_sec": 1.989376
+    }
+  }
+}

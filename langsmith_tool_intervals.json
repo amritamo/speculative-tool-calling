@@ -1,0 +1,28 @@
+{
+  "trace_id": "019a3693-3357-72bd-bcfc-ceaf1a272bad",
+  "root_run_id": "019a3693-3357-72bd-bcfc-ceaf1a272bad",
+  "e2e_latency_sec": 57.076435,
+  "total_tool_latency_sec": 32.74404692649841,
+  "tool_to_e2e_ratio_percent": 57.368766858859374,
+  "tool_runs_count": 1,
+  "tavily_run_ids": [
+    "073b1780-2cc6-4646-a411-8a3c3052338e"
+  ],
+  "intervals": [
+    {
+      "name": "tavily_search",
+      "id": "073b1780-2cc6-4646-a411-8a3c3052338e",
+      "start_time_iso": "2025-10-30T19:23:36.237081",
+      "end_time_iso": "2025-10-30T19:24:08.981128",
+      "start_ts": 1761877416.237081,
+      "end_ts": 1761877448.981128,
+      "duration_sec": 32.744047
+    }
+  ],
+  "merged_intervals": [
+    [
+      1761877416.237081,
+      1761877448.981128
+    ]
+  ]
+}
